@@ -30,7 +30,7 @@
             <font>
                <Font name="System Bold" size="12.0" />
             </font></Label>
-         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="Arrow" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@arrow.png" />
             </image>
@@ -39,7 +39,7 @@
             </VBox.margin>
          </ImageView>
          <Label maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-          <Button  text="Random" />
+          <Button text="Random" />
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
