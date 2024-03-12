@@ -18,10 +18,12 @@ public class HelloController {
 
     AnimationTimer timer = null;
     int fok=0;
+    int x=1;
 
     @FXML
     protected void initialize() {
         for (int s=0;s<10;s++) {
+
             for (int o=0;o<15;o++) {
                 t[s][o]= 0;
                 int ss=s,oo=o;
@@ -32,6 +34,7 @@ public class HelloController {
                 lt[s][o].setOnMouseEntered(e -> lt[ss][oo].setStyle("-fx-background-color: lightgreen;"));
                 lt[s][o].setOnMouseExited(e -> lt[ss][oo].setStyle("-fx-background-color: white;"));
                 Panel.getChildren().add(lt[s][o]);
+
             }
         }
        timer= new AnimationTimer() {
@@ -42,5 +45,35 @@ public class HelloController {
                }
        };
     timer.start();
+
+        for (int s=0;s<15;s++) {
+            random();
+            for (int o=9;o>x;o--) {
+                lt[o][s].setGraphic(new ImageView(new Image(getClass().getResourceAsStream("box.png"))));
+                t[o][s]=1;
+            }
+        }
+
+    }
+
+    private void random() {
+        x = (int)(Math.random()*8);
+
+    }
+
+    public void onRandomClick() {
+        for (int s=0;s<10;s++) {
+            for (int o = 0; o < 15; o++) {
+                lt[s][o].setGraphic(new ImageView(new Image(getClass().getResourceAsStream("null.png"))));
+                t[s][o] = 0;
+            }
+        }
+        for (int o=0;o<15;o++) {
+            random();
+            for (int s=9;s>x;s--) {
+                lt[s][o].setGraphic(new ImageView(new Image(getClass().getResourceAsStream("box.png"))));
+                t[s][o]=1;
+            }
+        }
     }
 }
